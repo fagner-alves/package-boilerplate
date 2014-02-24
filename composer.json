@@ -1,0 +1,21 @@
+{
+    "name":        "tomkyle/package-boilerplate",
+    "type":        "library",
+
+    "description": "A package boilerplate",
+
+    "authors": [
+        {
+            "name":  "My Name",
+            "email": "test@test.com",
+            "role":  "Developer"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Acme\\": "src/"
+        }
+    }
+
+}
