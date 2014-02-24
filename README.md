@@ -1,6 +1,6 @@
 #My new Package
 
-Version: 1.0.0
+If you want to work with TravisCI, rename `.travis.yml.dist` to `.travis.yml`
 
 ##Requirements
 
