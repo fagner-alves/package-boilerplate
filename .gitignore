@@ -38,6 +38,19 @@ Thumbs.db
 .LSOverride
 Icon
 .AppleDouble
-_schrott
 
+# Project files      #
+######################
+config.json
+var/*
+logs/*
+
+# Workflow files     #
+######################
+_schrott
+vendor
+node_modules
+tests/build
+build
+phpunit.xml
 
