@@ -4,6 +4,8 @@
 
     "description": "A package boilerplate",
 
+    "license": "MIT",
+
     "authors": [
         {
             "name":  "My Name",
@@ -11,6 +13,10 @@
             "role":  "Developer"
         }
     ],
+
+    "require": {
+        "php": ">=5.4.0"
+    },
 
     "autoload": {
         "psr-4": {
