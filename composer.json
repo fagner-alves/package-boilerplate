@@ -1,27 +1,29 @@
 {
-    "name":        "tomkyle/package-boilerplate",
-    "type":        "library",
+	"name":        "tomkyle/package-boilerplate",
+	"version":     "1.0.0-alpha",
 
-    "description": "A package boilerplate",
+	"type":        "library",
 
-    "license": "MIT",
+	"description": "A package boilerplate",
 
-    "authors": [
-        {
-            "name":  "My Name",
-            "email": "test@test.com",
-            "role":  "Developer"
-        }
-    ],
+	"license":     "MIT",
 
-    "require": {
-        "php": ">=5.4.0"
-    },
+	"authors": [
+		{
+			"name":  "My Name",
+			"email": "test@test.com",
+			"role":  "Developer"
+		}
+	],
 
-    "autoload": {
-        "psr-4": {
-            "Acme\\": "src/"
-        }
-    }
+	"require": {
+		"php": ">=5.4.0"
+	},
+
+	"autoload": {
+		"psr-4": {
+			"Acme\\": "src/"
+		}
+	}
 
 }
