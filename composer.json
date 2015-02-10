@@ -1,8 +1,8 @@
 {
 	"name":        "tomkyle/package-boilerplate",
-	"version":     "1.0.0-alpha",
+	"version":     "1.2.1",
 
-	"type":        "library",
+	"type":        "boilerplate",
 
 	"description": "A package boilerplate",
 
@@ -31,7 +31,7 @@
 
   "require-dev": {
       "satooshi/php-coveralls": "dev-master",
-      "phpunit/phpunit": "~4.5"
+      "phpunit/phpunit":        "~4.5"
   },
 
 
