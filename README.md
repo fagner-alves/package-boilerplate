@@ -18,6 +18,14 @@ $ cd <directory>
 
 ```
 
+Second, run installer to retrieve the latest .htaccess from HTML5 boilerplate. 
+The installer can be deleted after this.
+
+```bash
+$ ./installer.sh
+```
+
+
 
 If you want to work with TravisCI:
 
