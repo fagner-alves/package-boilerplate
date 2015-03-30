@@ -10,6 +10,24 @@ if [[ $FETCH_HTACCESS =~ ^[Yy]$ ]]; then
 	echo "Done."
 fi;
 
+
+
+
+echo;
+printf "Bower: install HTML5 Boilerplate, Bootstrap and jQuery? (y/n) ";
+read INSTALL_BOWER;
+echo ""
+
+if [[ $INSTALL_BOWER =~ ^[Yy]$ ]]; then
+
+        bower install html5-boilerplate bootstrap jquery
+        echo "Done."
+fi;
+
+
+
+
+
 echo;
 printf "Delete this installer? (y/n) ";
 read DELETE_INSTALLER;
@@ -20,6 +38,8 @@ if [[ $DELETE_INSTALLER =~ ^[Yy]$ ]]; then
         rm $0
         echo "Done."
 fi;
+
+
 
 
 
