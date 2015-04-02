@@ -76,6 +76,19 @@ fi;
 
 
 
+echo;
+printf "Travis CI: Create .travis.yml for local use from .travis.yml.dist? (y/n) ";
+read COPY_TRAVIS;
+echo ""
+
+if [[ $COPY_TRAVIS =~ ^[Yy]$ ]]; then
+
+        cp $INSTALL_DIR/.travis.yml.dist $INSTALL_DIR/.travis.yml
+        echo "Done."
+fi;
+
+
+
 
 
 echo;
@@ -93,4 +106,4 @@ fi;
 
 
 
-unset FETCH_HTACCESS DELETE_INSTALLER INSTALL_BOWER DELETE_GIT MKDIR_FOLDERS CREATE_HTACCESS;
+unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS;
