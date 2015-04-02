@@ -84,7 +84,7 @@ echo ""
 
 if [[ $INSTALL_TESTING =~ ^[Yy]$ ]]; then
 
-    composer require --dev satooshi/php-coveralls:dev-master phpunit/phpunit:~4.*
+    composer require --dev satooshi/php-coveralls:dev-master phpunit/phpunit:4.*
     echo "Done."
 
 	echo;
