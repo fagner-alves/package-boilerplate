@@ -21,13 +21,14 @@ fi;
 
 
 echo;
-printf "Create folder structure for a web app (templates, htdocs, includes, var/cache)? (y/n) ";
+printf "Create folder structure for a web app (templates, static, htdocs, includes, var/cache)? (y/n) ";
 read MKDIR_FOLDERS;
 echo ""
 
 if [[ $MKDIR_FOLDERS =~ ^[Yy]$ ]]; then
 
 	printf "Create ${INSTALL_DIR}/templates ... " && mkdir -p $INSTALL_DIR/templates && echo "Done."
+	printf "Create ${INSTALL_DIR}/static ... "    && mkdir -p $INSTALL_DIR/templates && echo "Done."
 	printf "Create ${INSTALL_DIR}/includes ... "  && mkdir -p $INSTALL_DIR/includes  && echo "Done."
 	printf "Create ${INSTALL_DIR}/var/cache ... " && mkdir -p $INSTALL_DIR/var/cache && chmod 0775 $INSTALL_DIR/var && echo "Done."
 
@@ -87,6 +88,21 @@ if [[ $INSTALL_TESTING =~ ^[Yy]$ ]]; then
     composer require --dev satooshi/php-coveralls:dev-master phpunit/phpunit:4.*
     echo "Done."
 
+
+
+
+	echo;
+	printf "PHPUnit: Create phpunit.xml for local use from phpunit.xml.dist? (y/n) ";
+	read COPY_PHPUNIT_XML;
+	echo ""
+
+	if [[ $COPY_PHPUNIT_XML =~ ^[Yy]$ ]]; then
+	    cp $INSTALL_DIR/phpunit.xml.dist $INSTALL_DIR/phpunit.xml
+	fi;
+
+
+
+
 	echo;
 	printf "Use Travis CI for PHP Unit Testing? (y/n) ";
 	read COPY_TRAVIS;
@@ -122,15 +138,15 @@ fi;
 
 
 
-echo;
-printf "Composer: Install PHP dependencies (y/n) ";
-read COMPOSER_INSTALL;
-echo ""
-
-if [[ $COMPOSER_INSTALL =~ ^[Yy]$ ]]; then
-    composer install
-    echo "Done."
-fi;
+# echo;
+# printf "Composer: Install PHP dependencies (y/n) ";
+# read COMPOSER_INSTALL;
+# echo ""
+#
+# if [[ $COMPOSER_INSTALL =~ ^[Yy]$ ]]; then
+#     composer install
+#     echo "Done."
+# fi;
 
 
 
@@ -152,4 +168,4 @@ fi;
 
 
 
-unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS  INSTALL_TESTING  COMPOSER_INSTALL;
+unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  COPY_PHPUNIT_XML  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS  INSTALL_TESTING  COMPOSER_INSTALL;
