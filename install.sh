@@ -11,24 +11,9 @@ echo ""
 
 if [[ $FETCH_HTACCESS =~ ^[Yy]$ ]]; then
 
-	curl https://raw.githubusercontent.com/h5bp/server-configs-apache/master/dist/.htaccess > .htaccess
+	curl https://raw.githubusercontent.com/h5bp/server-configs-apache/master/dist/.htaccess > $INSTALL_DIR/.htaccess
 	echo "Done."
 fi;
-
-
-
-
-echo;
-printf "Bower: install HTML5 Boilerplate, Bootstrap and jQuery? (y/n) ";
-read INSTALL_BOWER;
-echo ""
-
-if [[ $INSTALL_BOWER =~ ^[Yy]$ ]]; then
-
-        bower install html5-boilerplate bootstrap jquery
-        echo "Done."
-fi;
-
 
 
 
@@ -76,8 +61,39 @@ fi;
 
 
 
+
 echo;
-printf "Travis CI: Create .travis.yml for local use from .travis.yml.dist? (y/n) ";
+printf "Bower: Install front-end dependencies (HTML5 Boilerplate, Bootstrap and jQuery)? (y/n) ";
+read INSTALL_BOWER;
+echo ""
+
+if [[ $INSTALL_BOWER =~ ^[Yy]$ ]]; then
+
+        bower install html5-boilerplate bootstrap jquery
+        echo "Done."
+fi;
+
+
+
+
+
+echo;
+printf "Composer: Install PHP dependencies (y/n) ";
+read COMPOSER_INSTALL;
+echo ""
+
+if [[ $COMPOSER_INSTALL =~ ^[Yy]$ ]]; then
+
+        composer install --dev
+        echo "Done."
+fi;
+
+
+
+
+
+echo;
+printf "PHP Testing/Travis CI: Create .travis.yml for local use from .travis.yml.dist? (y/n) ";
 read COPY_TRAVIS;
 echo ""
 
@@ -86,6 +102,7 @@ if [[ $COPY_TRAVIS =~ ^[Yy]$ ]]; then
         cp $INSTALL_DIR/.travis.yml.dist $INSTALL_DIR/.travis.yml
         echo "Done."
 fi;
+
 
 
 
@@ -106,4 +123,4 @@ fi;
 
 
 
-unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS;
+unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS  COMPOSER_INSTALL;
