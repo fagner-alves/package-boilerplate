@@ -26,13 +26,6 @@ $ ./installer.sh
 
 
 
-Install dependencies and testing software:
-
-```bash
-$ composer install --dev
-```
-
-
 ##Testing
 
 Go to package root directory and issue `phpunit`.
