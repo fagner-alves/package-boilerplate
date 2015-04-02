@@ -18,8 +18,7 @@ $ cd <directory>
 
 ```
 
-Second, run installer to retrieve the latest .htaccess from HTML5 boilerplate. 
-The installer can be deleted after this.
+Second, run installer script. It will ask you a few questions on installing further useful stuff and create a web app directory layout if needed.
 
 ```bash
 $ ./installer.sh
