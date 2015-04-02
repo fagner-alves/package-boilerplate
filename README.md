@@ -26,13 +26,6 @@ $ ./installer.sh
 
 
 
-If you want to work with TravisCI:
-
-```bash 
-$ cp .travis.yml.dist .travis.yml
-```
-
-
 Install dependencies and testing software:
 
 ```bash
