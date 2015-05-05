@@ -6,13 +6,14 @@ INSTALL_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 
 echo;
-printf "Since this is a boilerplate: delete .git folder in order to detach it from original source repo? (y/n) ";
+printf "Since this is a boilerplate: Delete .git folder and composer.json in order to detach it from original source repo? (y/n) ";
 read DELETE_GIT;
 echo ""
 
 if [[ $DELETE_GIT =~ ^[Yy]$ ]]; then
 
         rm -Rf $INSTALL_DIR/.git
+        rm -Rf $INSTALL_DIR/composer.json
         echo "Done."
 fi;
 
@@ -63,20 +64,39 @@ fi;
 
 
 
-
-
-
 echo;
-printf "Bower: Install front-end dependencies (HTML5 Boilerplate, Bootstrap and jQuery)? (y/n) ";
-read INSTALL_BOWER;
+printf "Use Bower for frontend depenedency management? (y/n) ";
+read USE_BOWER;
 echo ""
 
-if [[ $INSTALL_BOWER =~ ^[Yy]$ ]]; then
+if [[ $USE_BOWER =~ ^[Yy]$ ]]; then
 
-    bower install html5-boilerplate bootstrap jquery
-    echo "Done."
+
+
+	echo;
+	printf "Bower: Interactively create bower.json? (y/n) ";
+	read INSTALL_BOWER;
+	echo ""
+
+	if [[ $CREATE_BOWER_JSON =~ ^[Yy]$ ]]; then
+	    bower init
+	    echo "Done."
+	fi;
+
+
+
+	echo;
+	printf "Bower: Install front-end dependencies (HTML5 Boilerplate, Bootstrap and jQuery)? (y/n) ";
+	read INSTALL_BOWER;
+	echo ""
+
+	if [[ $INSTALL_BOWER =~ ^[Yy]$ ]]; then
+
+	    bower install --save html5-boilerplate bootstrap jquery
+	    echo "Done."
+	fi;
+
 fi;
-
 
 
 
@@ -138,19 +158,17 @@ fi;
 
 
 
+echo;
+printf "PHP/Composer: Install Slim framework and Twig template engine (y/n) ";
+read INSTALL_SLIM_TWIG;
+echo ""
 
+if [[ $INSTALL_SLIM_TWIG =~ ^[Yy]$ ]]; then
 
+    composer require twig/twig slim/slim
+    echo "Done."
 
-# echo;
-# printf "Composer: Install PHP dependencies (y/n) ";
-# read COMPOSER_INSTALL;
-# echo ""
-#
-# if [[ $COMPOSER_INSTALL =~ ^[Yy]$ ]]; then
-#     composer install
-#     echo "Done."
-# fi;
-
+fi;
 
 
 
@@ -171,4 +189,4 @@ fi;
 
 
 
-unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  COPY_PHPUNIT_XML  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS  INSTALL_TESTING  COMPOSER_INSTALL;
+unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  COPY_PHPUNIT_XML  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS  INSTALL_TESTING  USE_BOWER  COMPOSER_INSTALL  CREATE_BOWER_JSON;
