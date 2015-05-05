@@ -35,13 +35,16 @@ if [[ $MKDIR_FOLDERS =~ ^[Yy]$ ]]; then
 	printf "Create ${INSTALL_DIR}/htdocs ... " && mkdir -p $INSTALL_DIR/htdocs && echo "Done."
 
 
+
 	printf "Create empty .htaccess file in htdocs/ (y/n) ";
 	read CREATE_HTACCESS;
 	echo ""
 
 	if [[ $CREATE_HTACCESS =~ ^[Yy]$ ]]; then
-		printf "Create ${INSTALL_DIR}/htdocs/.htaccess ... " echo "# htaccess" > $INSTALL_DIR/htdocs/.htaccess && echo "Done."
+		printf "Create ${INSTALL_DIR}/htdocs/.htaccess ... "
+		echo "# htaccess" > $INSTALL_DIR/htdocs/.htaccess && echo "Done."
 	fi;
+
 
 	echo;
 	printf "Put latest .htaccess from HTML5 boilerplate dist into project root? (y/n) ";
