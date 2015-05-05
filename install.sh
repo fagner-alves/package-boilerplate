@@ -101,6 +101,24 @@ fi;
 
 
 
+
+
+echo;
+printf "Use Composer for PHP dependency management (y/n) ";
+read CREATE_COMPOSER_JSON;
+echo ""
+
+if [[ $CREATE_COMPOSER_JSON =~ ^[Yy]$ ]]; then
+
+	$INSTALL_DIR/create-composer-json.php
+
+fi;
+
+
+
+
+
+
 echo;
 printf "Are you planning PHP Unit Testing? Requires phpunit and php-coveralls (y/n) ";
 read INSTALL_TESTING;
@@ -182,6 +200,7 @@ echo ""
 
 if [[ $DELETE_INSTALLER =~ ^[Yy]$ ]]; then
     rm $0
+    rm $INSTALL_DIR/create-composer-json.php
     echo "Done."
 fi;
 
@@ -189,4 +208,4 @@ fi;
 
 
 
-unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  COPY_PHPUNIT_XML  MKDIR_FOLDERS  CREATE_HTACCESS  COPY_TRAVIS  INSTALL_TESTING  USE_BOWER  COMPOSER_INSTALL  CREATE_BOWER_JSON;
+unset FETCH_HTACCESS  DELETE_INSTALLER  INSTALL_BOWER  DELETE_GIT  COPY_PHPUNIT_XML  MKDIR_FOLDERS  CREATE_HTACCESS  CREATE_COMPOSER_JSON  COPY_TRAVIS  INSTALL_TESTING  USE_BOWER  COMPOSER_INSTALL  CREATE_BOWER_JSON;
