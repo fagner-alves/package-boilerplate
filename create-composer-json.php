@@ -16,8 +16,17 @@ $info = new \StdClass;
 echo "Package name: ";
 $info->name = getLine();
 
-echo "Initial version number (1.0.0-rc): ";
+echo "Initial version number: (1.0.0-rc) ";
 $info->version = getLine() ?: "1.0.0-rc";
+
+echo "Description: ";
+if ($description = getLine()) {
+    $info->description = $description;
+}
+
+echo "License: (proprietary) ";
+$info->license = getLine() ?: "proprietary";
+
 
 
 
@@ -50,8 +59,19 @@ if ( $psr4_name ) {
 
     $autoload = array( "psr-4" => array( $psr4_name => null ) );
 
-    echo "PSR-4 namespace source directory: (src/)";
-    $autoload['psr-4'][ $psr4_name ] = getLine() ?: "src/";
+    echo "PSR-4 namespace source directory: (src/) ";
+    $src_dir = getLine() ?: "src/";
+
+    if (!is_dir($src_dir)) {
+        echo "Create source directory: $src_dir (yes|no)?";
+
+        if ( (strtolower(getLine()) === "yes")
+        and  (mkdir( $src_dir, 0775, "recursive"))) {
+            echo "Done.";
+        }
+    }
+    $autoload['psr-4'][ $psr4_name ] = $src_dir;
+
 
     $info->autoload = json_decode(json_encode( $autoload, JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT));
 }
